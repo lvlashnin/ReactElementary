@@ -13,15 +13,24 @@ class App extends Component {
 		super()
 
 		this.state = {
-      user1: {name: 'Коля', surname: 'Иванов'},
-			user2: {name: 'Вася', surname: 'Петров'},
-			user3: {name: 'Петя', surname: 'Сидоров'},
+      users: [
+				{name: 'Коля', surname: 'Иванов'},
+				{name: 'Вася', surname: 'Петров'},
+				{name: 'Петя', surname: 'Сидоров'},
+			]
 		}
   }
   showMessage(num) {
     alert(num);
   }
-  render() {    
+  deleteUser(index) {
+		this.state.users.splice(index, 1);
+		this.setState({users: this.state.users});
+	}
+  render() { 
+    const list = this.state.users.map((user,index)=>{
+      return <ReactComponents key={index} name = {user.name} surname={user.surname} num={index+1} showMessage={this.showMessage.bind(this)} deleteUser={this.deleteUser.bind(this)}/>
+    })   
     return (
       <div>
       <Article article = {articles[1]} foo = 'bar'/>
@@ -30,26 +39,7 @@ class App extends Component {
       <ProCycles/>
       {/* <ReactForms/> */}
       <ProReactForms/>
-      <ReactComponents
-				name={this.state.user1.name}
-				surname={this.state.user1.surname}
-				num="1"
-				showMessage={this.showMessage.bind(this)}
-			/>
-			
-			<ReactComponents
-				name={this.state.user2.name}
-				surname={this.state.user2.surname}
-				num="2"
-				showMessage={this.showMessage.bind(this)}
-			/>
-			
-			<ReactComponents
-				name={this.state.user3.name}
-				surname={this.state.user3.surname}
-				num="3"
-				showMessage={this.showMessage.bind(this)}
-			/>    
+        {list}
       </div>
     );
   }

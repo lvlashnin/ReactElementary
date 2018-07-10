@@ -13,6 +13,9 @@ class ReactComponents extends Component {
             <button onClick={this.props.showMessage.bind(null, this.props.num)}>
 				нажми на меня
 			</button>
+            <button onClick={this.props.deleteUser.bind(null, this.props.index)}>
+				удалить
+			</button>
             </div>
         )
     }

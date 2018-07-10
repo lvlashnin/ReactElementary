@@ -7,16 +7,12 @@ class ReactComponents extends Component {
 
     
     render() {        
-        return (<div>
-           	<p>имя: {this.props.name}</p>
-			<p>фамилия: {this.props.surname}</p>
-            <button onClick={this.props.showMessage.bind(null, this.props.num)}>
-				нажми на меня
-			</button>
-            <button onClick={this.props.deleteUser.bind(null, this.props.index)}>
-				удалить
-			</button>
-            </div>
+        return (
+        <div>
+                <table border="1">
+                <tr><td>{this.props.name}</td><td>{this.props.surname}</td><td>{this.props.age}</td><td><button onClick={this.props.showmessage.bind(null,this.props.name)}>PRESS</button></td></tr>
+                </table>          
+         </div>
         )
     }
 }

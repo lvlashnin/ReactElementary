@@ -14,22 +14,20 @@ class App extends Component {
 
 		this.state = {
       users: [
-				{name: 'Коля', surname: 'Иванов'},
-				{name: 'Вася', surname: 'Петров'},
-				{name: 'Петя', surname: 'Сидоров'},
+				{name: 'Коля', surname: 'Иванов', age:"24"},
+				{name: 'Вася', surname: 'Петров', age:"23"},
+        {name: 'Петя', surname: 'Сидоров', age:"27"},
+        {name: 'Senya', surname: 'Петров', age:"23"},
+				{name: 'Ivan', surname: 'Сидоров', age:"23"},
 			]
 		}
   }
-  showMessage(num) {
-    alert(num);
+  showMessage(name){
+    alert(name)
   }
-  deleteUser(index) {
-		this.state.users.splice(index, 1);
-		this.setState({users: this.state.users});
-	}
   render() { 
     const list = this.state.users.map((user,index)=>{
-      return <ReactComponents key={index} name = {user.name} surname={user.surname} num={index+1} showMessage={this.showMessage.bind(this)} deleteUser={this.deleteUser.bind(this)}/>
+      return <ReactComponents key={index} name = {user.name} surname={user.surname} age={user.age} showmessage={this.showMessage.bind(this)} />
     })   
     return (
       <div>

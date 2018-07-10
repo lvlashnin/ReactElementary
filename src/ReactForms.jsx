@@ -3,13 +3,15 @@ import React, { Component } from 'react';
 export default class ReactForms extends Component {
 	constructor(){
 		super()
-		
+		this.state = {name: 'Иван', surname: 'Иванов'}
 	}
 	
 	render() {
 		return (
 			<div>
-				
+				<p>
+			имя: {this.state.name}, фамилия: {this.state.surname}
+		</p>
 			</div>
 		)
 	}

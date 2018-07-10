@@ -8,27 +8,8 @@ import ProCycles from './ProCycles';
 import ProReactForms from './ProReactForms'
 import ReactComponents from './ReactComponents';
 
-class App extends Component {
-  constructor() {
-		super();
-
-		//Храним данные в стейте:
-    this.state = {
-			users: [
-				{name: 'Коля', surname: 'Иванов'},
-				{name: 'Вася', surname: 'Петров'},
-				{name: 'Петя', surname: 'Сидоров'},
-			]
-		}
-	}
-  render() {
-    const users = this.state.users.map((item, index) => {
-			return <ReactComponents
-				key={index}
-				name={item.name}
-				surname={item.surname}
-			/>;
-		})
+class App extends Component {  
+  render() {    
     return (
       <div>
       <Article article = {articles[1]} foo = 'bar'/>
@@ -37,8 +18,7 @@ class App extends Component {
       <ProCycles/>
       {/* <ReactForms/> */}
       <ProReactForms/>
-      <ReactComponents/>
-      {users}
+      <ReactComponents/>     
       </div>
     );
   }

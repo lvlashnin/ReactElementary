@@ -22,12 +22,24 @@ class App extends Component {
 			]
 		}
   }
-  showMessage(name){
-    alert(name)
+  showMessage(num){
+    alert(num)
+  }
+  delMessage(index){
+    this.state.users.splice(index,1)
+    this.setState({users:this.state.users})
   }
   render() { 
     const list = this.state.users.map((user,index)=>{
-      return <ReactComponents key={index} name = {user.name} surname={user.surname} age={user.age} showmessage={this.showMessage.bind(this)} />
+      return <ReactComponents 
+      key={index} 
+      name = {user.name} 
+      surname={user.surname} 
+      age={user.age} 
+      showmessage={this.showMessage.bind(this)} 
+      num={index+1} 
+      index={index}
+      delmessage={this.delMessage.bind(this)} />
     })   
     return (
       <div>
